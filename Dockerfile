@@ -1,12 +1,21 @@
 # Start from Alpine base image
 FROM alpine
 LABEL maintainer="Sarge <sarge-alex@github.com>"
-LABEL version="0.5.4"
+LABEL version="0.0.1"
 
 # Set the working directory to /opt/app
 WORKDIR /opt/app
 
-RUN apk --no-cache --no-progress upgrade && apk --no-cache --no-progress add bash bind-tools oath-toolkit-oathtool curl ip6tables iptables openvpn easy-rsa openvpn-auth-ldap
+RUN apk --no-cache --no-progress upgrade \
+ && apk --no-cache --no-progress add \
+    bash \
+    bind-tools \
+    oath-toolkit-oathtool \
+    curl ip6tables \
+    iptables \
+    openvpn \
+    easy-rsa \
+    openvpn-auth-ldap
 
 #Install Latest RasyRSA Version
 RUN chmod 755 /usr/share/easy-rsa/*
